@@ -168,6 +168,8 @@ void merge(int *arr[], int start, int mid, int end) {
 
 }
 
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "misc-no-recursion"
 void mergeSort(int *arr[], int start, int end) {
     if (start < end) {
         int mid = (start+end)/2;
@@ -176,6 +178,7 @@ void mergeSort(int *arr[], int start, int end) {
         merge(arr, start, mid, end);
     }
 }
+#pragma clang diagnostic pop
 
 void sort(intList *list) {
     int *arr[getSize(list)];
