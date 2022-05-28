@@ -8,7 +8,7 @@ typedef struct {
 } intList;
 
 void init(intList *list) {
-    list-> list = calloc(2, sizeof (int *));
+    list-> list = calloc(2, sizeof (int));
     list-> capacity = 2;
     list-> size = 0;
 }
@@ -34,7 +34,7 @@ void resize(intList *list, int newCap) {
     }
 
     free(list->list);
-    list->list = calloc(newCap, sizeof(int *));
+    list->list = calloc(newCap, sizeof(int));
 
     for (int i = 0; i<list->size; i++) {
         list->list[i] = tempArray[i];
