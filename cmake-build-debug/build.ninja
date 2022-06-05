@@ -78,6 +78,12 @@ build CMakeFiles/Python_Like_List.dir/main.c.o: C_COMPILER__Python_Like_List_Deb
   OBJECT_DIR = CMakeFiles/Python_Like_List.dir
   OBJECT_FILE_DIR = CMakeFiles/Python_Like_List.dir
 
+build CMakeFiles/Python_Like_List.dir/list.c.o: C_COMPILER__Python_Like_List_Debug /Users/dhevin/Desktop/Programming_stuff/Python_Like_List/list.c || cmake_object_order_depends_target_Python_Like_List
+  DEP_FILE = CMakeFiles/Python_Like_List.dir/list.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.1 -std=gnu17
+  OBJECT_DIR = CMakeFiles/Python_Like_List.dir
+  OBJECT_FILE_DIR = CMakeFiles/Python_Like_List.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Python_Like_List
@@ -86,7 +92,7 @@ build CMakeFiles/Python_Like_List.dir/main.c.o: C_COMPILER__Python_Like_List_Deb
 #############################################
 # Link the executable Python_Like_List
 
-build Python_Like_List: C_EXECUTABLE_LINKER__Python_Like_List_Debug CMakeFiles/Python_Like_List.dir/main.c.o
+build Python_Like_List: C_EXECUTABLE_LINKER__Python_Like_List_Debug CMakeFiles/Python_Like_List.dir/main.c.o CMakeFiles/Python_Like_List.dir/list.c.o
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.1
   OBJECT_DIR = CMakeFiles/Python_Like_List.dir
   POST_BUILD = :

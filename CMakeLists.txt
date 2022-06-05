@@ -3,4 +3,4 @@ project(Python_Like_List C)
 
 set(CMAKE_C_STANDARD 17)
 
-add_executable(Python_Like_List main.c)
+add_executable(Python_Like_List main.c list.c list.h)
