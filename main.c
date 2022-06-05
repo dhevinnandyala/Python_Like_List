@@ -2,8 +2,11 @@
 #include "list.h"
 
 int main() {
+
     intList list;
+
     init(&list);
+
 
     add(&list, 0);
     add(&list, 19);

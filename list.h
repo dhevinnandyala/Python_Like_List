@@ -5,7 +5,11 @@
 #ifndef PYTHON_LIKE_LIST_LIST_H
 #define PYTHON_LIKE_LIST_LIST_H
 
-typedef struct {} intList;
+typedef struct {
+    int *list;
+    int size;
+    int capacity;
+} intList;
 
 void init(intList *list); //initializes list to empty array, size to 0, capacity to 2
 int getSize(intList *list); //returns size
