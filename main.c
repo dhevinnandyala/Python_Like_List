@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include "list.h"
 
-
 int main() {
     intList list;
     init(&list);
@@ -53,7 +52,8 @@ int main() {
     sort(&list);
     print(&list);
     reverse(&list);
+    printf("%s", "hi");
     print(&list);
 
-
+    return 0;
 }

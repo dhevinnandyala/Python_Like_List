@@ -148,6 +148,8 @@ int partition(*n, int l, int h) {
     return (i+1);
 }
 
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "misc-no-recursion"
 void quickSort(int *n, int l, int h) {
     if (l < h) {
         int p = partition(n, l, h);
@@ -155,13 +157,14 @@ void quickSort(int *n, int l, int h) {
         quickSort(n, p, h);
     }
 }
+#pragma clang diagnostic pop
 
 void sort(intList *list) {
     int *arr = calloc(list->size, sizeof (int *));
     for (int i = 0; i <list->size; i++) {
         *(arr+i) = list->list[i];
     }
-    quickSort(arr, 0, list->size);
+    quickSort(arr, 0, list->size-1);
 
     for (int i = 0; i < list->size; i++) {
         list->list[i] = *(arr+i);
