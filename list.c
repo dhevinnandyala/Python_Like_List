@@ -35,8 +35,7 @@ void resize(intList *list, int newCap) {
         tempArray[i] = list-> list[i];
     }
 
-    free(list->list);
-    list->list = calloc(newCap, sizeof(int));
+    list->list = realloc(list->list, newCap);
 
     for (int i = 0; i<list->size; i++) {
         list->list[i] = tempArray[i];
@@ -134,7 +133,7 @@ void swap (int *x, int *y) {
     *y = temp;
 }
 
-int partition(*n, int l, int h) {
+int partition(int *n, int l, int h) {
     int x = *(n+h);
     int i = l - 1;
     for (int j = l; j < h; j++) {

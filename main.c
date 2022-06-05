@@ -52,8 +52,7 @@ int main() {
     sort(&list);
     print(&list);
     reverse(&list);
-    printf("%s", "hi");
+    printf("%s", "LAST LINE \n");
     print(&list);
-
     return 0;
 }
