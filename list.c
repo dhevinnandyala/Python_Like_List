@@ -2,7 +2,6 @@
 // Created by Dhevin N on 5/6/22.
 //
 
-#include "list.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -129,70 +128,46 @@ int count(intList *list, int val) {
     return count;
 }
 
-void merge(int *arr[], int start, int mid, int end) {
-    int n1 = mid-start + 1;
-    int n2 = end - mid;
+void swap (int *x, int *y) {
+    int temp = *x;
+    *x = *y;
+    *y = temp;
+}
 
-    int leftArr[n1], rightArr[n2];
-
-    for (int i = 0; i < n1; i++) {
-        leftArr[i] = *arr[start+i];
-    }
-    for (int i = 0; i < n2; i++) {
-        rightArr[i] = *arr[mid+1+i];
-    }
-
-    int i = 0;
-    int j = 0;
-    int k = start;
-
-    while (i < n1 && j < n2) {
-        if (leftArr[i] <= rightArr[j]) {
-            *arr[k] = leftArr[i];
+int partition(*n, int l, int h) {
+    int x = *(n+h);
+    int i = l - 1;
+    for (int j = l; j < h; j++) {
+        if (*(n+j) <= x) {
             i++;
-        } else {
-            *arr[k] = rightArr[j];
-            j++;
+            swap(n+i, n+j);
         }
-        k++;
     }
 
-    while (i<n1) {
-        *arr[k] = leftArr[i];
-        i++;
-        k++;
-    }
-
-    while (j<n2) {
-        *arr[k] = rightArr[j];
-        j++;
-        k++;
-    }
-
+    swap(n+i+1, n+h);
+    return (i+1);
 }
 
-#pragma clang diagnostic push
-#pragma ide diagnostic ignored "misc-no-recursion"
-void mergeSort(int *arr[], int start, int end) {
-    if (start < end) {
-        int mid = (start+end)/2;
-        mergeSort(arr, start, mid);
-        mergeSort(arr, mid+1, end);
-        merge(arr, start, mid, end);
+void quickSort(int *n, int l, int h) {
+    if (l < h) {
+        int p = partition(n, l, h);
+        quickSort(n, l, p-1);
+        quickSort(n, p, h);
     }
 }
-#pragma clang diagnostic pop
 
 void sort(intList *list) {
-    int *arr[list->size];
-    for (int i = 0; i < list->size; i++) {
-        *arr[i] = list->list[i];
+    int *arr = calloc(list->size, sizeof (int *));
+    for (int i = 0; i <list->size; i++) {
+        *(arr+i) = list->list[i];
     }
-    mergeSort(arr, 0, list->size-1);
+    quickSort(arr, 0, list->size);
 
     for (int i = 0; i < list->size; i++) {
-        list->list[i] = *arr[i];
+        list->list[i] = *(arr+i);
     }
+    free(arr);
+
 }
 
 void reverse(intList *list) {
@@ -210,7 +185,7 @@ void print(intList *list) {
     for (int i = 0; i < list->size; i++) {
         printf("%d ", list->list[i]);
     }
-    printf("\n length: %d", list->size);
+    printf("\n size: %d", list->size);
     printf("\n capacity: %d \n", list->capacity);
 
 }

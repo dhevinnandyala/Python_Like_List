@@ -1,26 +1,5 @@
 #include <stdio.h>
-
-typedef struct {
-    int *list;
-    int size;
-    int capacity;
-} intList;
-
-void init(intList *list);
-int getSize(intList *list);
-int getCapacity(intList *list);
-void clear(intList *list);
-void minimize(intList *list);
-int getIndex(intList *list, int val);
-int contains(intList *list, int val);
-void add(intList *list, int val);
-int insert(intList *list, int val, int index);
-int removeAt(intList *list, int index);
-int removeVal(intList *list, int val);
-int count(intList *list, int val);
-void sort(intList *list);
-void reverse(intList *list);
-void print(intList *list);
+#include "list.h"
 
 
 int main() {
