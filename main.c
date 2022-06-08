@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "list.h"
 
 int main() {
@@ -55,7 +54,6 @@ int main() {
     sort(&list);
     print(&list);
     reverse(&list);
-    printf("%s", "LAST LINE \n");
     print(&list);
     return 0;
 }

@@ -4,7 +4,8 @@
 
 #ifndef PYTHON_LIKE_LIST_LIST_H
 #define PYTHON_LIKE_LIST_LIST_H
-
+#include <stdlib.h>
+#include <stdio.h>
 typedef struct {
     int *list;
     int size;
